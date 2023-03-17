@@ -1,3 +1,5 @@
+    {
+        "Produtos": [
     { "codigo": 1001, "descricao": "Televisão 32 polegadas", "marca": "ACME", "preco": 998.00, "imagem": "" },
 	{ "codigo": 1002, "descricao": "Tablet", "marca": "ACME", "preco": 815.00, "imagem": "" },
 	{ "codigo": 1003, "descricao": "Aparelho Celular", "marca": "ACME", "preco": 777.70, "imagem": "" },
@@ -15,3 +17,4 @@
 	{ "codigo": 1015, "descricao": "Ampulheta", "marca": "Hour", "preco": 55.00, "imagem": "" },
 	{ "codigo": 1016, "descricao": "Travesseiro", "marca": "Nuvem", "preco": 23.00, "imagem": "" }
 ]
+    }
