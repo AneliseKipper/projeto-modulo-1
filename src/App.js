@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Cabecalho from './components/Cabecalho' 
 import './App.css';
 
