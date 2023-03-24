@@ -46,6 +46,17 @@ export default function PesquisarProdutos(props) {
 
     <form onSubmit={(event)=> addCarrinho(event)} >
 
+    {/* O define um botão de envio que Envia todos os valores de formulário para um manipulador de formulários.<input type="submit">
+
+O manipulador de formulários é normalmente uma página do servidor com um script para processar o dados de entrada.
+
+O manipulador de formulário é especificado no atributo do formulário.action 
+
+O método submit() envia o formulário (o mesmo que clicar no botão Enviar).
+
+Ponta: Usar o método reset() para redefinir o formulário.
+
+*/}
     
     <table className='tableAdd' cellPadding={10} >
 	    <tbody>

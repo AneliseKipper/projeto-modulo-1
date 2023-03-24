@@ -1,29 +1,39 @@
 import { useEffect, useState } from 'react';
 import Cabecalho from './components/Cabecalho' 
 import Produtos from './components/Produtos';
-import PesquisarProduto from './componentes/PesquisarProduto'
+import PesquisarProduto from './components/PesquisarProduto'
 import CarrinhodeCompras from './components/CarrinhodeCompras'
-import CupomFiscal from './componentes/CupomFiscal'
+import CupomFiscal from './components/CupomFiscal'
 import './App.css';
 
+
+
+
+
 function App() {
+  const [produtos, setProdutos]= useState ([])
+
+  useEffect( () => {
+    fetch('produtos.json')
+     .then(resp => resp.json())
+      .then(Produtos => {
+  setProdutos(Produtos);
+      
+     } )
+      .catch(erro => console.log(erro));
+   }, []);
+
   return (
     <div className="App">
       
       <Cabecalho/>
+      <Produtos produtos={produtos}/>
       
     </div>
   );
 }
 
-// useEffect( () => {
-//       fetch('produtos.json')
-//        .then(resp => resp.json())
-//         .then(Produtos => {setProdutos(Produtos);
-//            setProdutos(false); 
-//        } )
-//         .catch(erro => console.log(erro));
-//      }, []);
+
 
 
 

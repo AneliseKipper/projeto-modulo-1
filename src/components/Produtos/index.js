@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 
-export default function Produtos() {
-  const [produtos,setProdutos] = useState([])
-
-  useEffect(()=>{
-    fetch('./produtos.json').then( (resp)=> resp.json()).then((data)=>{
-
-       setProdutos(data.Produtos) 
-    }).catch((er)=>{
-      console.log(er)
-    })
-  },[])
-
+export default function Produtos({produtos}) {
+  // console.log (produtos);
+  
   return (
     <>
     <h3 >
@@ -22,10 +13,12 @@ export default function Produtos() {
     <table style={{textAlign:'left'}}>
       <tbody>
         
-        {produtos.map((p,i)=>{
+ 
+        {
+          produtos.map((p,i)=>{  
           return(
             <tr key={i}>
-              <td>{p.codigo}-</td>
+              <td>{p.codigo}-</td>   
               <td>{p.descricao}&nbsp;-&nbsp;</td>
               <td>{p.preco.toFixed(2)}</td>
             </tr>
