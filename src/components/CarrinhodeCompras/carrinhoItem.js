@@ -18,5 +18,3 @@ export default function CarrinhoItem({produto,remover}) {
     </>
   )
 }
-
-{/* <br> produz uma quebra de linha em um texto */}

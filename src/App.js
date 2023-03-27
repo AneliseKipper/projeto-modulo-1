@@ -1,76 +1,83 @@
-import { useEffect, useState } from 'react';
 import Cabecalho from './components/Cabecalho' 
-import Produtos from './components/Produtos';
-import PesquisarProduto from './components/PesquisarProduto'
-import CarrinhodeCompras from './components/CarrinhodeCompras'
-import CupomFiscal from './components/CupomFiscal'
 import './App.css';
-
-
-
-
+import Produtos from './components/Produtos';
+import PesquisarProdutos from './components/PesquisarProduto';
+import CuponFiscal from './components/CupomFiscal';
+import Carrinho from './components/CarrinhodeCompras';
+import { useEffect,useState } from 'react'
 
 function App() {
-  const [produtos, setProdutos]= useState ([])
+  const [carrinhoCompras,setCarrinhoCompras] = useState([{  }])
+  const [carrinhoItem,setCarrinhoItem]= useState([])
+  const [cupon,setCupon] = useState([])
 
-  useEffect( () => {
-    fetch('produtos.json')
-     .then(resp => resp.json())
-      .then(Produtos => {
-  setProdutos(Produtos);
-      
-     } )
-      .catch(erro => console.log(erro));
-   }, []);
+  useEffect(()=>{
+    if(carrinhoCompras.codigo){
+
+        if(carrinhoItem.find((r)=>r.codigo ==carrinhoCompras.codigo)!=null){
+          alert('Produto existente no carrinho, verifique!')
+          return;
+        }
+
+        setCarrinhoItem(carOld => [...carOld, carrinhoCompras]);
+        setCupon(carOld => [...carOld, {
+          codigo:carrinhoCompras.codigo,
+          descricao:carrinhoCompras.descricao,
+          marca:carrinhoCompras.marca,
+          preco:carrinhoCompras.preco,
+          qtde:Number(carrinhoCompras.qtde),
+          op:'+',
+
+        }])
+    }
+  },[carrinhoCompras])
+
+  const remover =(produto)=>{
+ 
+    var array = [...carrinhoItem]; 
+    var index = array.indexOf(produto)
+    if (index !== -1) {
+      array.splice(index, 1);
+      setCarrinhoItem( array);
+    }
+
+    setCupon(carOld => [...carOld, {
+      codigo:produto.codigo,
+      descricao:produto.descricao,
+      marca:produto.marca,
+      preco:produto.preco,
+      qtde:Number(produto.qtde),
+      op:'-',
+
+    }])
+
+  }
 
   return (
     <div className="App">
       
       <Cabecalho/>
-      <Produtos produtos={produtos}/>
+      <div id="produtos" className='divMain'>
+        <Produtos />
+
+      </div>
+      <div id="pesquisar" className='divMainPesquisar'>
+       
+        <PesquisarProdutos setCarrinho={setCarrinhoCompras} />
+
+        <Carrinho carrinho={carrinhoItem} remover={remover} />
+
+      </div>
+      <div id="cupon" className='divMainCupon'>
+        <CuponFiscal cupon={cupon} />
+
+      </div>
+
+     
       
     </div>
   );
 }
 
-
-
-
-
-
-     
-// import { useEffect, useState } from 'react';
-// import ListaPersonagens from './components/ListaPersonagens';
-// import CadastroPersonagem from './components/CadastroPersonagem';
-// import './App.css';
-
-// function App() {
-
-//   const [carregando, setCarregando] = useState(true);  // loading 
-//   const [personagens, setPersonagens] = useState([]);
-
-//   useEffect( () => {
-//     fetch('dados.json')
-//       .then(resp => resp.json())
-//       .then(dados => { 
-//         setPersonagens(dados);
-//         setCarregando(false); 
-//       } )
-//       .catch(erro => console.log(erro));
-//   }, []);
-  
-
-//   if (carregando) {  // Se estiver carregando, mostrar aguarde...
-//     return (<h1>Aguarde...</h1>);  
-//   }
-
-//   return (
-//     <div className="App">      
-//       <ListaPersonagens personagens={personagens} carregaPersonagens={setPersonagens} />
-//       <CadastroPersonagem personagens={personagens} carregaPersonagens={setPersonagens} />
-//     </div>
-//   );
-// }
-
-
 export default App;
+
