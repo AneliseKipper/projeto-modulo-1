@@ -22,7 +22,7 @@ let soma = 0;
   return (
     <>
     <h3>
-        Cupon Fiscal
+      Cupom Fiscal 
     </h3>
 
     <table style={{textAlign:'left',width:'100%'}}>
@@ -32,7 +32,7 @@ let soma = 0;
           <th>produto</th>
           <th>preço unit</th>
           <th>qtde</th>
-          <th>preço</th>
+          <th>preço subt</th>
           </tr></thead>
       <tbody>
 
