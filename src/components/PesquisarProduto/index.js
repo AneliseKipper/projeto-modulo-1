@@ -34,9 +34,7 @@ export default function PesquisarProdutos(props) {
         preco:prod.preco,
         qtde:Number(qtde)
       });
-      //setCodigo('')
-      //setQtde(0)
-    //  console.table(carrinho)
+      
   }
   return (
     <>
