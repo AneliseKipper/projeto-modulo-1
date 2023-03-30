@@ -25,7 +25,7 @@ let soma = 0;
       Cupom Fiscal 
     </h3>
 
-    <table style={{textAlign:'left',width:'100%'}}>
+    <table style={{textAlign:'left',width:'100%', fontSize:'xsmall'}}>
     <thead><tr>
           <th>op</th>
           <th>cód</th>
@@ -44,9 +44,9 @@ let soma = 0;
               <td>{p.codigo}</td>
               
               <td>{p.descricao}</td>
-              <td>R$ &nbsp;{p.preco.toFixed(2)}</td>
+              <td>{p.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
               <td>{p.qtde}</td>
-              <td>R$ &nbsp;{(p.preco * p.qtde).toFixed(2)}</td>
+              <td>{(p.preco * p.qtde).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
             </tr>
           )
         })
@@ -57,7 +57,7 @@ let soma = 0;
           <th colSpan={6}><br></br></th>
         </tr>
         <tr>
-            <th colSpan={5} scope="row" align='right'>Total</th>
+            <th colSpan={5} scope="row" align='right'>Total...</th>
             <td colSpan={1}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
 .format(soma) }</td>
         </tr>
