@@ -27,7 +27,7 @@ export default function Produtos() {
             <tr key={i}>
               <td>{p.codigo}-</td>
               <td>{p.descricao}&nbsp;-&nbsp;</td>
-              <td>R$ {p.preco.toFixed(2)}</td>
+              <td align='right'>R$ { p.preco.toFixed(2)} </td>
             </tr>
           )
         })

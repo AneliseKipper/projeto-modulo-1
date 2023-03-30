@@ -32,7 +32,7 @@ let soma = 0;
           <th>produto</th>
           <th>preço unit</th>
           <th>qtde</th>
-          <th>preço subt</th>
+          <th>subtotal</th>
           </tr></thead>
       <tbody>
 
@@ -57,7 +57,7 @@ let soma = 0;
           <th colSpan={6}><br></br></th>
         </tr>
         <tr>
-            <th colSpan={5} scope="row">Total</th>
+            <th colSpan={5} scope="row" align='right'>Total</th>
             <td colSpan={1}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'})
 .format(soma) }</td>
         </tr>

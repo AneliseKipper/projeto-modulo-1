@@ -15,7 +15,7 @@ function App() {
     if(carrinhoCompras.codigo){
 
         if(carrinhoItem.find((r)=>r.codigo ==carrinhoCompras.codigo)!=null){
-          alert('Produto existente no carrinho, verifique!')
+          alert('Produto já existente no carrinho, verifique!')
           return;
         }
 

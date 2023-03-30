@@ -7,7 +7,7 @@ export default function Carrinho({carrinho,remover}) {
    return (
     <>
     <h3 >
-        Carrinho de compras
+        Carrinho de Compras
     </h3>
 
     {
