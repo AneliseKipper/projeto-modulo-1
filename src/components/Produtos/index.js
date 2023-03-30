@@ -19,7 +19,7 @@ export default function Produtos() {
         Produtos
     </h3>
 
-    <table style={{textAlign:'left'}}>
+    <table style={{textAlign:'left' ,fontSize: 'small' }}>
       <tbody>
         
         {produtos.map((p,i)=>{
